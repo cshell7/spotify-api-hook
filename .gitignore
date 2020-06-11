@@ -1,0 +1,15 @@
+# dependencies
+/node_modules
+node_modules/
+
+# builds
+/dist
+/cjs
+
+# misc
+.DS_STORE
+.DS_Store
+/coverage
+
+# logs
+npm-debug.log*

@@ -1,0 +1,64 @@
+{
+  "name": "@c-shell/npm-package-template",
+  "version": "0.0.0",
+  "description": "A template to give you a quick start on making npm packages",
+  "main": "cjs/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist/",
+    "cjs/"
+  ],
+  "scripts": {
+    "build:esm": "rm -rf dist && babel src -d dist --ignore readme.md",
+    "build:cjs": "rm -rf cjs && BABEL_BUILD=cjs babel src -d cjs --ignore readme.md",
+    "build": "npm run build:esm && npm run build:cjs",
+    "test": "BABEL_BUILD=cjs jest",
+    "test:coverage": "npm test -- --coverage",
+    "test:watch": "npm test -- --watch",
+    "lint": "eslint --color ./",
+    "lint:security": "eslint --config .eslintrc.security --no-eslintrc .",
+    "test:all": "npm test && npm run lint && npm run lint:security && npm audit",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cshell7/npm-package-templage.git"
+  },
+  "keywords": [
+    "npm",
+    "package",
+    "template"
+  ],
+  "author": "Calvin Shell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cshell7/npm-package-templage/issues"
+  },
+  "homepage": "https://github.com/cshell7/npm-package-templage#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^10.0.1",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^25.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-config-standard-jsx": "^8.1.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^25.1.0",
+    "prettier": "^2.0.2"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "env": {
+    "jest/globals": true,
+    "browser": true
+  },
+  "extends": ["plugin:prettier/recommended", "standard", "standard-jsx", "prettier"],
+  "parser": "babel-eslint",
+  "plugins": ["jest", "babel", "react-hooks", "prettier"],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "react-hooks/rules-of-hooks": ["error"],
+    "react-hooks/exhaustive-deps": ["warn"]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
