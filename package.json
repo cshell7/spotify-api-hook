@@ -1,7 +1,7 @@
 {
-  "name": "@c-shell/npm-package-template",
+  "name": "@c-shell/spotify-api-hook",
   "version": "0.0.0",
-  "description": "A template to give you a quick start on making npm packages",
+  "description": "A hook for easily setup and use of the spotify API",
   "main": "cjs/index.js",
   "module": "dist/index.js",
   "files": [
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cshell7/npm-package-templage.git"
+    "url": "git+https://github.com/cshell7/spotify-api-hook.git"
   },
   "keywords": [
     "npm",
@@ -32,9 +32,9 @@
   "author": "Calvin Shell",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cshell7/npm-package-templage/issues"
+    "url": "https://github.com/cshell7/spotify-api-hook/issues"
   },
-  "homepage": "https://github.com/cshell7/npm-package-templage#readme",
+  "homepage": "https://github.com/cshell7/spotify-api-hook#readme",
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
@@ -60,5 +60,13 @@
     "eslint-plugin-standard": "^4.0.1",
     "jest": "^25.1.0",
     "prettier": "^2.0.2"
+  },
+  "dependencies": {
+    "js-cookie": "^2.2.1",
+    "utils-url-query-params": "^1.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-router-dom": "^5.2.0"
   }
 }
