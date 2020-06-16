@@ -86,9 +86,9 @@ export const SpotifyAPIProvider = ({ clientId, children }) => {
 
   const isAuthed = !!userAccessToken
 
-  const fetchData = (url) =>
+  const fetchData = (url, method = 'GET') =>
     fetch(`https://api.spotify.com/v1/${url}`, {
-      method: 'GET',
+      method,
       headers: {
         Authorization: `Bearer ${userAccessToken}`,
       },
