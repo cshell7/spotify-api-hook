@@ -93,10 +93,15 @@ export const SpotifyAPIProvider = ({ clientId, children }) => {
         Authorization: `Bearer ${userAccessToken}`,
       },
     })
-      .then((response) => response.json())
-      .then((data) => data)
+      .then((response) => {
+        return response.json()
+      })
+      .then((data) => {
+        console.log({ data })
+        return data
+      })
       .catch((error) => {
-        console.error(error)
+        console.error('error', error)
         setError({
           message: error?.message || 'Something went wrong.',
           code: error?.status,
