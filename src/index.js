@@ -95,6 +95,13 @@ export const SpotifyAPIProvider = ({ clientId, children }) => {
     })
       .then((response) => response.json())
       .then((data) => data)
+      .catch((error) => {
+        console.error(error)
+        setError({
+          message: error?.message || 'Something went wrong.',
+          code: error?.status,
+        })
+      })
 
   return (
     <SpotityAPIContext.Provider
