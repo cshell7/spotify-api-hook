@@ -98,6 +98,7 @@ export const SpotifyAPIProvider = ({ clientId, children }) => {
       })
       .then((data) => {
         console.log({ data })
+        if (data.error) return Promise.reject(data.error)
         return data
       })
       .catch((error) => {
