@@ -44,10 +44,8 @@ export const SpotifyAPIProvider = ({ clientId, children }) => {
   } = spotifyAuthResponse
 
   const [error, setError] = useState()
-  const [isLoading, setIsLoading] = useState(true)
   const [userAccessToken, setUserAccessToken] = useState()
   useEffect(() => {
-    // setIsLoading(true)
     const clearUrlQueryParams = () => history.replace(pathame)
 
     const hasResponse = !!returnedAuthRequestTime
@@ -84,7 +82,6 @@ export const SpotifyAPIProvider = ({ clientId, children }) => {
       setUserAccessToken(cachedUserAccessToken)
       setError(null)
     }
-    setIsLoading(false)
   }, [returnedAuthRequestTime, spotifyErrorCode, newUserAccessToken, expiresIn, history, pathame])
 
   const isAuthed = !!userAccessToken
@@ -120,7 +117,6 @@ export const SpotifyAPIProvider = ({ clientId, children }) => {
         isAuthed,
         error,
         fetchData,
-        isLoading,
       }}
     >
       {children}
@@ -129,13 +125,12 @@ export const SpotifyAPIProvider = ({ clientId, children }) => {
 }
 
 export const useSpotityAPI = () => {
-  const { getUserAccessToken, userAccessToken, error, isAuthed, fetchData, isLoading } = useContext(SpotityAPIContext)
+  const { getUserAccessToken, userAccessToken, error, isAuthed, fetchData } = useContext(SpotityAPIContext)
   return {
     getUserAccessToken,
     userAccessToken,
     error,
     isAuthed,
     fetchData,
-    isLoading,
   }
 }
